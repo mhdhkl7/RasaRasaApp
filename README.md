@@ -1,102 +1,136 @@
-# RasaRasa - Aplikasi Food Delivery Full-Stack
+# 🍱 RasaRasa App — Full-Stack Food Delivery System
 
-Ini adalah proyek aplikasi food delivery lengkap yang dibangun dari awal, mencakup backend API, tiga aplikasi web frontend (Konsumen, Penjual, Admin), dan satu aplikasi mobile (Driver).
+RasaRasa adalah aplikasi food delivery multi-platform yang dikembangkan untuk mensimulasikan ekosistem layanan seperti GoFood atau GrabFood, namun dengan arsitektur yang sepenuhnya dikendalikan sendiri. Proyek ini mencakup backend API, tiga frontend web (untuk konsumen, penjual, dan admin), serta satu aplikasi mobile (untuk driver).
 
-## Fitur Utama
+> Dibangun sebagai proyek eksploratif full-stack oleh mahasiswa semester 2, proyek ini menekankan kemampuan eksekusi lintas teknologi, dari setup database hingga deployment aplikasi mobile.
 
-#### 1. Aplikasi Konsumen (`rasarasa_frontend`)
-* Melihat daftar restoran.
-* Melihat menu dari restoran spesifik.
-* Keranjang belanja fungsional (tambah, ubah jumlah, hapus).
-* Proses checkout dan pembuatan pesanan.
+---
 
-#### 2. Dashboard Penjual (`rasarasa_seller_dashboard`)
-* Login yang aman untuk penjual.
-* Manajemen menu lengkap (Create, Read, Update, Delete).
-* Melihat daftar pesanan yang masuk ke restorannya.
+## 🚀 Fitur Utama
 
-#### 3. Dashboard Admin (`rasarasa_admin_dashboard`)
-* Login yang aman khusus untuk admin.
-* Melihat dan mengawasi semua restoran yang terdaftar di platform.
+### 🧑‍🍳 Konsumen (`rasarasa_frontend`)
+- Menelusuri daftar restoran
+- Melihat dan memilih menu dari restoran
+- Menambahkan, mengubah, dan menghapus item di keranjang
+- Checkout dan pembuatan pesanan
 
-#### 4. Aplikasi Driver (`rasarasa_driver_app`)
-* Aplikasi mobile dibangun dengan React Native (via Expo).
-* Login yang aman untuk driver.
-* Melihat daftar pesanan yang tersedia untuk diantar.
-* Menerima dan menyelesaikan pesanan.
+### 🏪 Penjual (`rasarasa_seller_dashboard`)
+- Login aman untuk penjual
+- CRUD menu makanan
+- Melihat daftar pesanan yang masuk
 
-## Teknologi yang Digunakan
+### 🛡️ Admin (`rasarasa_admin_dashboard`)
+- Login khusus untuk admin
+- Monitoring seluruh restoran dan transaksi
 
-* **Backend**: Node.js, Express.js, PostgreSQL, JWT (JSON Web Tokens)
-* **Frontend (Web)**: React.js, Next.js, Tailwind CSS
-* **Frontend (Mobile)**: React Native (Expo)
-* **Database**: PostgreSQL
-* **Alat Bantu**: pgAdmin 4, Postman
+### 🛵 Driver (`rasarasa_driver_app`)
+- Aplikasi mobile (React Native via Expo)
+- Login untuk driver
+- Melihat pesanan yang tersedia
+- Menerima dan menyelesaikan pengantaran
 
-## Struktur Proyek
+---
+
+## 🧰 Teknologi yang Digunakan
+
+- **Backend**: Node.js, Express.js, PostgreSQL, JWT
+- **Frontend Web**: React.js, Next.js, Tailwind CSS
+- **Mobile App**: React Native (Expo)
+- **Database Tools**: pgAdmin 4
+- **Testing/API Debug**: Postman
+
+---
+
+## 🗂️ Struktur Proyek
+
 ```
-IMK Project/
-├── rasarasa_backend/              # Server API (Node.js)
-├── rasarasa_frontend/             # Aplikasi Web untuk Konsumen (Next.js)
-├── rasarasa_seller_dashboard/     # Dashboard Web untuk Penjual (Next.js)
-├── rasarasa_admin_dashboard/      # Dashboard Web untuk Admin (Next.js)
-└── rasarasa_driver_app/           # Aplikasi Mobile untuk Driver (React Native)
-```
 
-## Cara Menjalankan Proyek
+rasarasa\_project/
+├── rasarasa\_backend/              # REST API Backend
+├── rasarasa\_frontend/             # Web App (Konsumen)
+├── rasarasa\_seller\_dashboard/     # Web App (Penjual)
+├── rasarasa\_admin\_dashboard/      # Web App (Admin)
+└── rasarasa\_driver\_app/           # Mobile App (Driver)
 
-#### Prasyarat
-* Node.js & NPM
-* PostgreSQL
-* Expo Go (di HP untuk aplikasi driver)
+````
 
-#### 1. Backend Setup
+---
+
+## 🛠️ Cara Menjalankan Proyek
+
+### 🔧 Prasyarat
+- Node.js & npm
+- PostgreSQL (terinstal lokal)
+- Expo Go (untuk aplikasi mobile)
+
+---
+
+### 📦 1. Setup Backend
+
 ```bash
-# Masuk ke direktori backend
 cd rasarasa_backend
-
-# Install dependensi
 npm install
+````
 
-# Buat file .env dan isi sesuai kredensial database Anda
-# Contoh .env:
-# DB_USER=postgres
-# DB_HOST=localhost
-# DB_DATABASE=rasarasa_db
-# DB_PASSWORD=password-anda
-# DB_PORT=5432
-# JWT_SECRET=kunci_rahasia_anda
+Buat file `.env` dengan isi:
 
-# Jalankan server backend
+```
+DB_USER=postgres
+DB_HOST=localhost
+DB_DATABASE=rasarasa_db
+DB_PASSWORD=yourpassword
+DB_PORT=5432
+JWT_SECRET=your_secret_key
+```
+
+Lalu jalankan:
+
+```bash
 node index.js
-# Server akan berjalan di http://localhost:3001
+# Server berjalan di http://localhost:3001
 ```
 
-#### 2. Frontend Setup (Lakukan untuk setiap aplikasi web)
+---
+
+### 🌐 2. Setup Aplikasi Frontend Web
+
+Ulangi langkah ini untuk masing-masing:
+
+* `rasarasa_frontend`
+* `rasarasa_seller_dashboard`
+* `rasarasa_admin_dashboard`
+
 ```bash
-# Buka terminal BARU, lalu masuk ke direktori frontend
-cd rasarasa_frontend
-# atau cd rasarasa_seller_dashboard, atau cd rasarasa_admin_dashboard
-
-# Install dependensi
+cd nama_folder_anda
 npm install
-
-# Jalankan server development
 npm run dev
-# Aplikasi akan berjalan di http://localhost:3000, 3002, 3003
+# Web berjalan di localhost:3000, 3002, 3003 (ubah port sesuai kebutuhan)
 ```
 
-#### 3. Mobile App Setup
+---
+
+### 📱 3. Setup Aplikasi Mobile (Driver)
+
 ```bash
-# Buka terminal BARU, lalu masuk ke direktori aplikasi mobile
 cd rasarasa_driver_app
-
-# Install dependensi
 npm install
-
-# Jalankan server Expo
 npm start
-
-# Scan QR code yang muncul dengan aplikasi Expo Go di HP Anda.
-# PENTING: Jangan lupa ubah alamat IP di dalam kode aplikasi mobile.
 ```
+
+* Buka aplikasi **Expo Go** di HP.
+* Scan QR code dari terminal.
+* Pastikan IP address di dalam kode React Native telah diubah agar cocok dengan IP lokal server backend.
+
+---
+
+## 📌 Status Proyek
+
+**Versi:** 1.0 (Prototipe MVP)
+**Status:** Masih dalam pengembangan aktif
+**Dibuat oleh:** Muhammad Haikal Siregar (Universitas Satya Terra Bhinneka)
+
+---
+
+## ✨ Catatan Pribadi
+
+Proyek ini adalah hasil dari inisiatif pribadi, dibangun dengan pendekatan eksploratif sambil belajar konsep full-stack modern secara langsung. Meskipun dibantu oleh alat seperti AI untuk dokumentasi dan debugging, seluruh eksekusi teknis dan penyesuaian arsitektur dilakukan sendiri — sebagai bentuk latihan mandiri untuk menjadi developer yang adaptif dan tangguh.
